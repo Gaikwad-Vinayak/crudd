@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <div class="container-fluid">
+        <div class="alert alert-primary text-center" role="alert">
+            <h1>Crud Angular</h1>
+            <button type="submit" class="btn btn-light" id="listofform" (click)="listofform()">List Of Form</button>
+            <button type="submit" class="btn btn-light" id="listofdata" (click)="listofdata()">List Of Data</button>
+
+           </div>
+    </div>
+<div>
+    
+<div class="container" id='list_form'>
+    
+    <form [formGroup]="MyComponentForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="name" name="name" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" name="email" formControlName="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Roll</label>
+            <input type="roll" name="roll" formControlName="roll" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Roll">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+       
+        <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+        <button type="submit" class="btn btn-primary" id="update">Update</button>
+      </form>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+
+    <div class="container" id="list_table">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Roll</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let apidata of apidata">
+              
+              <td>{{apidata.id}}</td>
+              <td>{{apidata.name}}</td>
+              <td>{{apidata.email}}</td>
+              <td>{{apidata.roll}}</td>
+              <td><button type="submit" class="btn btn-info" (click)="onEidit(apidata)">Edit</button></td>
+              <td><button type="submit" class="btn btn-danger"id="ID" value={{apidata.id}}  (click)="onDeletedata(apidata.id)">Delete</button></td>
+            </tr>
+           
+          </tbody>
+        </table>
+  </div>
+
+  </div>
+</div>
+</div>
+</div>
+    
+</body>
+</html>
